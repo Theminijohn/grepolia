@@ -12,5 +12,6 @@ namespace :ping do
 			Net::HTTP.get_response(uri)
 
 			puts 'Success...'
+		end
 	end
 end
