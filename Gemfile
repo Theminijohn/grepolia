@@ -15,6 +15,7 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'bootstrap-sass', '~> 3.2.0.1'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails', '~> 1.1.1.0'
+gem 'newrelic_rpm' 
 
 # Versioning
 gem 'paper_trail', '~> 3.0.3'
