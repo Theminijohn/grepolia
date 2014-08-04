@@ -10,7 +10,7 @@ task :player_kills_all => [:environment] do
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
-                                 :title          => 'Importing All Bash Points')
+                                 :title          => 'Importing Player All Bash')
 
   url = "http://de67.grepolis.com/data/player_kills_all.txt"
   url_data = open(url).read()
@@ -39,7 +39,7 @@ task :player_kills_def => [:environment] do
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
-                                 :title          => 'Importing Def Bash Points')
+                                 :title          => 'Importing Player Def Bash')
 
   url = "http://de67.grepolis.com/data/player_kills_def.txt"
   url_data = open(url).read()
@@ -68,7 +68,7 @@ task :player_kills_att => [:environment] do
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
-                                 :title          => 'Importing Att Bash Points')
+                                 :title          => 'Importing Player Att Bash')
 
   url = "http://de67.grepolis.com/data/player_kills_att.txt"
   url_data = open(url).read()
