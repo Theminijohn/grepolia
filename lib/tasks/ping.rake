@@ -7,10 +7,8 @@ namespace :ping do
 
 		if ENV['URL']
 			puts 'Sending Ping'
-
 			uri = URI(ENV['URL'])
 			Net::HTTP.get_response(uri)
-			
 			puts 'Success...'
 		end
 	end
