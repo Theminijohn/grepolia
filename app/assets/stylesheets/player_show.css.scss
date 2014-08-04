@@ -1,0 +1,58 @@
+.cerb_player_head {
+  height: 250px;
+  background-color: #3498db;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1em;
+  line-height: 1.5em;
+  border-radius: 4px 4px 0 0;
+  .pl_q_info {
+    padding: 15px 25px;
+    height: 70px;
+  }
+  .pl_name {
+    text-align: center;
+    padding-top: 30px;
+    height: 110px;
+    p {
+      font-size: 1.5em;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.30);
+      border-color: #676c6e;
+      border-bottom-color: #444749;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+  }
+  .pl_q_u_info {
+    padding: 30px 25px 15px 25px;
+    height: 70px;
+  }
+}
+
+// Under Header
+
+.player_content {
+  .nav-tabs {
+    padding-top: 15px;
+    padding-left: 20px;
+    li.active a {
+      background-color: #fff;
+    }
+  }
+  .board-inner{
+    background: #fafafa url(http://subtlepatterns.com/patterns/geometry2.png);
+    background-size: 30%;
+  }
+  .board{
+    height: 100%;
+    background: #fff;
+    box-shadow: 10px 10px #ccc, -10px 20px #ddd;
+    border-radius: 0 0 4px 4px;
+  }
+
+}
