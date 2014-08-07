@@ -14,10 +14,15 @@
 # Ignore all logfiles, tempfiles and other files.
 /log/*.log
 /tmp
-*.swp
+**.swp
+**.swo
+.tag*
+.rbenv-version
 *~
 .project
 .idea
 .DS_Store
 
-
+# POW
+.powrc
+.powenv
