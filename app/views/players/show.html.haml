@@ -48,7 +48,7 @@
       .pl_q_info
         .pull-left
           %i.fa.fa-shield.fa-lg
-          = @player.alliance_id
+            = @player.alliance.name rescue ""
         .pull-right
           %i.fa.fa-trophy.fa-lg
           = @player.rank
@@ -89,75 +89,44 @@
                 Conquers
         .tab-content
           #overview.tab-pane.active{style: 'padding:20px'}
+            Overview
+          #cities.tab-pane{style: 'padding:20px'}
             .panel.panel-default.pl_tab
               %table.table.table-bordered.table-hover
                 %thead
                   %tr.table_nav
                     %th Name
-                    %th Punkte
-                    %th Koordinaten
-                    %th Meer
+                    %th Points 
+                    %th Coordinates 
+                    %th Ocean 
                 %tbody
-                  %tr
-                    %td
-                      %a{href: "/towns/102"} M54 Platon 01
-                    %td 5777
-                    %td
-                      %a{href: "/islands/175382"} 502|498
-                    %td 54
-                  %tr
-                    %td
-                      %a{href: "/towns/137"} M55 Sokrates 05
-                    %td 3706
-                    %td
-                      %a{href: "/islands/177753"} 518|513
-                    %td 55
-                  %tr
-                    %td
-                      %a{href: "/towns/291"} M55 Sokrates 04
-                    %td 7019
-                    %td
-                      %a{href: "/islands/177753"} 518|513
-                    %td 55
-                  %tr
-                    %td
-                      %a{href: "/towns/694"} Gummi Entes Nest
-                    %td 3390
-                    %td
-                      %a{href: "/islands/173013"} 487|460
-                    %td 44
-                  %tr
-                    %td
-                      %a{href: "/towns/1045"} M55 Sokrates 03
-                    %td 7409
-                    %td
-                      %a{href: "/islands/177791"} 525|500
-                    %td 55
-                  %tr
-                    %td
-                      %a{href: "/towns/1191"} M55 Sokrates 02
-                    %td 3922
-                    %td
-                      %a{href: "/islands/177795"} 530|500
-                    %td 55
-                  %tr
-                    %td
-                      %a{href: "/towns/1893"} M55 Sokrates 01
-                    %td 10890
-                    %td
-                      %a{href: "/islands/177795"} 530|500
-                    %td 55
-                  %tr
-                    %td
-                      %a{href: "/towns/2906"} M55 Sokrates 06
-                    %td 5118
-                    %td
-                      %a{href: "/islands/177843"} 550|511
-                    %td 55
-          #cities.tab-pane
-            Cities
-          #conquers.tab-pane
-            Conquers
+                  - @player.towns.each do |t|
+                    %tr
+                      %td= link_to t.name, t
+                      %td= number_with_delimiter(t.points)
+                      %td something 
+                      %td something 
+
+          #conquers.tab-pane{style: 'padding:20px'}
+            .panel.panel-default.pl_tab
+              %table.table.table-bordered.table-hover
+                %thead
+                  %tr.table_nav
+                    %th Date 
+                    %th Town 
+                    %th Old Player 
+                    %th Old Alliance 
+                    %th Intern
+                    %th Points
+                %tbody
+                  - @player.conquers.order('time desc').each do |c|
+                    %tr
+                      %td= c.conquer_time 
+                      %td= link_to c.town.name, c.town 
+                      %td= link_to c.old_player.name, c.old_player rescue c.old_player_name
+                      %td= link_to c.old_alliance.name, c.old_alliance rescue c.old_alliance_name 
+                      %td.center= intern_conquer(c)
+                      %td= number_with_delimiter(c.town_points)
 
 
 
@@ -172,113 +141,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      / %section{style: "background:#efefe9;"}
-      /   .board
-      /     .board-inner
-      /       %ul#myTab.nav.nav-tabs
-      /         .liner
-      /         %li.active
-      /           %a{"data-toggle" => "tab", href: "#home", title: "welcome"}
-      /             %span.round-tabs.one
-      /               %i.fa.fa-graduation-cap
-      /         %li
-      /           %a{"data-toggle" => "tab", href: "#profile", title: "profile"}
-      /             %span.round-tabs.two
-      /               %i.fa.fa-institution
-      /         %li
-      /           %a{"data-toggle" => "tab", href: "#messages", title: "bootsnipp goodies"}
-      /             %span.round-tabs.three
-      /               %i.fa.fa-flag
-      /         %li
-      /           %a{"data-toggle" => "tab", href: "#settings", title: "blah blah"}
-      /             %span.round-tabs.four
-      /               %i.glyphicon.glyphicon-comment
-      /         %li
-      /           %a{"data-toggle" => "tab", href: "#doner", title: "completed"}
-      /             %span.round-tabs.five
-      /               %i.glyphicon.glyphicon-ok
-      /     .tab-content
-      /       #home.tab-pane.fade.in.active
-      /         %h3.head.text-center
-      /           Welcome to Bootsnipp
-      /           %sup ™
-      /           %span{style: "color:#f48260;"} ♥
-      /         %p.narrow.text-center
-      /           Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-      /         %p.text-center
-      /           %a.btn.btn-success.btn-outline-rounded.green{href: ""}
-      /             start using bootsnipp
-      /             %span.glyphicon.glyphicon-send{style: "margin-left:10px;"}
-      /       #profile.tab-pane.fade
-      /         %h3.head.text-center
-      /           Create a Bootsnipp
-      /           %sup ™
-      /           Profile
-      /         %p.narrow.text-center
-      /           Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-      /         %p.text-center
-      /           %a.btn.btn-success.btn-outline-rounded.green{href: ""}
-      /             create your profile
-      /             %span.glyphicon.glyphicon-send{style: "margin-left:10px;"}
-      /       #messages.tab-pane.fade
-      /         %h3.head.text-center Bootsnipp goodies
-      /         %p.narrow.text-center
-      /           Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-      /         %p.text-center
-      /           %a.btn.btn-success.btn-outline-rounded.green{href: ""}
-      /             start using bootsnipp
-      /             %span.glyphicon.glyphicon-send{style: "margin-left:10px;"}
-      /       #settings.tab-pane.fade
-      /         %h3.head.text-center Drop comments!
-      /         %p.narrow.text-center
-      /           Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-      /         %p.text-center
-      /           %a.btn.btn-success.btn-outline-rounded.green{href: ""}
-      /             start using bootsnipp
-      /             %span.glyphicon.glyphicon-send{style: "margin-left:10px;"}
-      /       #doner.tab-pane.fade
-      /         .text-center
-      /           %i.img-intro.icon-checkmark-circle
-      /         %h3.head.text-center
-      /           thanks for staying tuned!
-      /           %span{style: "color:#f48260;"} ♥
-      /           Bootstrap
-      /         %p.narrow.text-center
-      /           Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-      /       .clearfix

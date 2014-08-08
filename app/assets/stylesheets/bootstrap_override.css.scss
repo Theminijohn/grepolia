@@ -9,11 +9,11 @@ $brand-primary:                   #2c3e50;
 $jumbotron-bg:                    white;
 
 $grid-gutter-width: 20px;
-$container-large-desktop:  ((980px + $grid-gutter-width));
+$container-large-desktop:  ((940px + $grid-gutter-width));
 
+@import 'font-awesome';
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'font-awesome';
 
 body {
   padding-top: 60px;
@@ -30,3 +30,38 @@ body {
 .navbar-brand {
   font-weight: bold;
 }
+
+/** Lets Design some Tables **/
+table > tbody > tr >  td {
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+
+
+/** 
+*** Color Guidline  
+
+text: #333
+darkest_dark: #14181E
+darker_dark: #171D25
+lighter_dark: #1d242e
+light_blue: #00aeef
+
+
+
+Ligher Dark Module ->
+light_blue: #c3d7ef
+background_dark: #1d242e
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ **/
