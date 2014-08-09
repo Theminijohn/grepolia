@@ -102,25 +102,18 @@ ActiveRecord::Schema.define(version: 20140808194033) do
     t.integer  "island_y"
     t.integer  "slot"
     t.integer  "points"
+    t.string   "ocean"
+    t.string   "coordinates"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "towns", ["coordinates"], name: "index_towns_on_coordinates", using: :btree
   add_index "towns", ["grepo_id"], name: "index_towns_on_grepo_id", using: :btree
   add_index "towns", ["island_x"], name: "index_towns_on_island_x", using: :btree
   add_index "towns", ["island_y"], name: "index_towns_on_island_y", using: :btree
+  add_index "towns", ["ocean"], name: "index_towns_on_ocean", using: :btree
   add_index "towns", ["player_id"], name: "index_towns_on_player_id", using: :btree
   add_index "towns", ["points"], name: "index_towns_on_points", using: :btree
-
-  create_table "versions", force: true do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.datetime "created_at"
-  end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end

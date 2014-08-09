@@ -9,7 +9,7 @@ task :import_players => :environment do
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
-                                 :title          => 'importing players')
+                                 :title          => 'Importing players')
 
   url = "http://de67.grepolis.com/data/players.txt"
   url_data = open(url).read()

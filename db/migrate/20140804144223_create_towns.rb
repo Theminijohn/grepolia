@@ -8,6 +8,8 @@ class CreateTowns < ActiveRecord::Migration
       t.integer :island_y
       t.integer :slot
       t.integer :points
+      t.string :ocean
+      t.string :coordinates
 
       t.timestamps
     end
@@ -16,5 +18,7 @@ class CreateTowns < ActiveRecord::Migration
     add_index :towns, :island_x
     add_index :towns, :island_y
     add_index :towns, :points
+    add_index :towns, :ocean
+    add_index :towns, :coordinates
   end
 end

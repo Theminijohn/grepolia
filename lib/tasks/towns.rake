@@ -25,6 +25,13 @@ task :import_towns => [:environment] do
     array.each do |a|
       a[:name] = a[:name].to_s
       a[:name] = CGI::unescape(a[:name]).force_encoding('UTF-8')
+
+      # Town's Ocean and Coordinates 
+      x = a[:island_x].to_s
+      y = a[:island_y].to_s
+      a[:ocean] = [x[0,1], y[0,1]].join('')
+      a[:coordinates] = [x,y].join('|')
+
       Town.where(:grepo_id => a[:grepo_id]).first_or_initialize.update_attributes(a)
       progress.increment
     end

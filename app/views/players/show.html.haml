@@ -86,16 +86,19 @@
               %a{"data-toggle" => "tab", href: "#towns", title: "profile"}
                 %i.fa.fa-institution
                 Towns 
+                %span.label.label-primary= @player.town_count
+                
             %li
               %a{"data-toggle" => "tab", href: "#conquers"}
                 %i.fa.fa-flag
-                  Conquers
+                Conquers
+                %span.label.label-primary= @player.conquers.all.count  
         .tab-content
           #overview.tab-pane.active{style: 'padding:20px'}
             Overview
           #towns.tab-pane{style: 'padding:20px'}
             .panel.panel-default.pl_tab
-              %table.table.table-bordered.table-hover
+              %table.table.table-bordered.table-hover.table-condensed
                 %thead
                   %tr.table_nav
                     %th Name
@@ -112,7 +115,7 @@
 
           #conquers.tab-pane{style: 'padding:20px'}
             .panel.panel-default.pl_tab
-              %table.table.table-bordered.table-hover
+              %table.table.table-bordered.table-hover.table-condensed
                 %thead
                   %tr.table_nav
                     %th Date 
