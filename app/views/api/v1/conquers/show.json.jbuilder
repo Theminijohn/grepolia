@@ -1,0 +1,10 @@
+json.town_id @conquer.town_id
+json.time @conquer.time
+json.new_player_id @conquer.new_player_id
+json.old_player_id @conquer.old_player_id
+json.new_ally_id @conquer.new_ally_id
+json.old_ally_id @conquer.old_ally_id
+json.town_points @conquer.town_points
+json.intern @conquer.intern
+json.old_player_name @conquer.old_player_name
+json.old_alliance_name @conquer.old_alliance_name
