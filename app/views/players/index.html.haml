@@ -1,2 +1,25 @@
-%h1 Players#index
-%p Find me in app/views/players/index.html.haml
+.center
+  %h2
+    Players
+
+.panel.panel-default
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %td Rank
+        %td Name
+        %td Alliance 
+        %td Points 
+        %td Towns 
+    %tbody
+      - @players.each do |player|
+        %tr
+          %td= player.rank
+          %td= link_to player.name, player
+          %td= link_to player.alliance.name, player.alliance if player.alliance.present?
+          %td= number_with_delimiter(player.points)
+          %td= link_to player.town_count, player
+
+
+.center
+  = will_paginate @players, renderer: BootstrapPagination::Rails
