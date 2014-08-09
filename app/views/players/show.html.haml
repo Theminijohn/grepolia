@@ -6,19 +6,22 @@
         .pull-left
           Fighter
         .pull-right
-          12196 points
+          = @player.all_points 
+          Points
         .clearfix
       %a.list-group-item{href: "#"}
         .pull-left
           Attacker
         .pull-right
-          10442 points
+          = @player.att_points
+          Points
         .clearfix
       %a.list-group-item{href: "#"}
         .pull-left
           Defender
         .pull-right
-          1754 points
+          = @player.def_points
+          Points
         .clearfix
     / Conquers
     .list-group
@@ -61,14 +64,14 @@
           .points
             %span.current_version
               %i.fa.fa-bar-chart-o.fa-lg
-              47,206
+              = @player.points 
             %span.diff_versions
               %i.fa.fa-chevron-circle-up{style: "color:rgba(46,204,113,0.6)"}
         .pull-right
           .towns
             %span.current_version
               %i.fa.fa-institution.fa-lg>
-              = pluralize(@player.town_count, 'City')
+              = pluralize(@player.town_count, 'Town')
             %span.diff_versions
               %i.fa.fa-chevron-circle-up{style: "color:rgba(46,204,113,0.6)"}
     .player_content
@@ -80,17 +83,17 @@
                 %i.fa.fa-graduation-cap
                 Overview
             %li
-              %a{"data-toggle" => "tab", href: "#cities", title: "profile"}
+              %a{"data-toggle" => "tab", href: "#towns", title: "profile"}
                 %i.fa.fa-institution
-                Cities
+                Towns 
             %li
-              %a{"data-toggle" => "tab", href: "#conquers", title: "bootsnipp goodies"}
+              %a{"data-toggle" => "tab", href: "#conquers"}
                 %i.fa.fa-flag
-                Conquers
+                  Conquers
         .tab-content
           #overview.tab-pane.active{style: 'padding:20px'}
             Overview
-          #cities.tab-pane{style: 'padding:20px'}
+          #towns.tab-pane{style: 'padding:20px'}
             .panel.panel-default.pl_tab
               %table.table.table-bordered.table-hover
                 %thead
@@ -127,17 +130,3 @@
                       %td= link_to c.old_alliance.name, c.old_alliance rescue c.old_alliance_name 
                       %td.center= intern_conquer(c)
                       %td= number_with_delimiter(c.town_points)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
