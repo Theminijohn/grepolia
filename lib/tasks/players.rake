@@ -3,9 +3,9 @@ require 'open-uri'
 require 'ruby-progressbar'
 desc "Import Players"
 
-task :import_players => :environment do
+task :import_players => [:environment] do
 
-  progress = progressbar.create( :format         => '%a %bᗧ%i %p%% %t',
+  progress = Progressbar.create( :format         => '%a %bᗧ%i %p%% %t',
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
