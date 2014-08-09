@@ -5,7 +5,7 @@ desc "Import Players"
 
 task :import_players => [:environment] do
 
-  progress = Progressbar.create( :format         => '%a %bᗧ%i %p%% %t',
+  progress = ProgressBar.create( :format         => '%a %bᗧ%i %p%% %t',
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
