@@ -6,5 +6,6 @@ class Player < ActiveRecord::Base
 
 	has_many :towns
 	belongs_to :alliance 
+  has_many :conquers, class_name: 'Conquer', foreign_key: :new_player_id
 
 end

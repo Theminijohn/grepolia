@@ -22,6 +22,10 @@ gem 'passenger'
 # Versioning
 gem 'paper_trail', '~> 3.0.3'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.7'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
+
 # API
 gem 'jbuilder', '~> 2.1.3'
 gem 'oj', '~> 2.9.9'
