@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804151332) do
+ActiveRecord::Schema.define(version: 20140808194033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,28 @@ ActiveRecord::Schema.define(version: 20140804151332) do
   add_index "alliances", ["points"], name: "index_alliances_on_points", using: :btree
   add_index "alliances", ["rank"], name: "index_alliances_on_rank", using: :btree
   add_index "alliances", ["town_count"], name: "index_alliances_on_town_count", using: :btree
+
+  create_table "conquers", primary_key: "town_id", force: true do |t|
+    t.integer  "time"
+    t.integer  "new_player_id"
+    t.integer  "old_player_id"
+    t.integer  "new_ally_id"
+    t.integer  "old_ally_id"
+    t.integer  "town_points"
+    t.boolean  "intern",            default: false
+    t.string   "old_player_name"
+    t.string   "old_alliance_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conquers", ["intern"], name: "index_conquers_on_intern", using: :btree
+  add_index "conquers", ["new_ally_id"], name: "index_conquers_on_new_ally_id", using: :btree
+  add_index "conquers", ["new_player_id"], name: "index_conquers_on_new_player_id", using: :btree
+  add_index "conquers", ["old_ally_id"], name: "index_conquers_on_old_ally_id", using: :btree
+  add_index "conquers", ["old_player_id"], name: "index_conquers_on_old_player_id", using: :btree
+  add_index "conquers", ["town_id"], name: "index_conquers_on_town_id", using: :btree
+  add_index "conquers", ["town_points"], name: "index_conquers_on_town_points", using: :btree
 
   create_table "players", primary_key: "grepo_id", force: true do |t|
     t.string   "name"

@@ -1,6 +1,8 @@
+@import 'colors';
+
 .cerb_player_head {
   height: 250px;
-  background-color: #3498db;
+  background-color: $light_dark;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.1em;
   line-height: 1.5em;
@@ -37,6 +39,8 @@
 // Under Header
 
 .player_content {
+  border-bottom: 1px solid #dfe4ee;
+  border-bottom: 1px solid #cfd4d8;
   .nav-tabs {
     padding-top: 15px;
     padding-left: 20px;
@@ -51,8 +55,28 @@
   .board{
     height: 100%;
     background: #fff;
-    box-shadow: 10px 10px #ccc, -10px 20px #ddd;
+    // box-shadow: 10px 10px #ccc, -10px 20px #ddd;
     border-radius: 0 0 4px 4px;
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
