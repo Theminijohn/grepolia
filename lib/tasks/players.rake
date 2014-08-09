@@ -3,13 +3,13 @@ require 'open-uri'
 require 'ruby-progressbar'
 desc "Import Players"
 
-task :import_players => :environment do
+task :import_players => [:environment] do
 
-  progress = progressbar.create( :format         => '%a %bᗧ%i %p%% %t',
+  progress = ProgressBar.create( :format         => '%a %bᗧ%i %p%% %t',
                                  :progress_mark  => ' ',
                                  :remainder_mark => '･',
                                  :total          => nil,
-                                 :title          => 'importing players')
+                                 :title          => 'Importing players')
 
   url = "http://de67.grepolis.com/data/players.txt"
   url_data = open(url).read()
