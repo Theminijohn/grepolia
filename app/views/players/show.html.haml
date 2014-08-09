@@ -110,8 +110,8 @@
                     %tr
                       %td= link_to t.name, t
                       %td= number_with_delimiter(t.points)
-                      %td something 
-                      %td something 
+                      %td= t.coordinates 
+                      %td= t.ocean
 
           #conquers.tab-pane{style: 'padding:20px'}
             .panel.panel-default.pl_tab
