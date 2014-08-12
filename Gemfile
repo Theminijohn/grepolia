@@ -18,6 +18,8 @@ gem 'backbone-on-rails', '~> 1.1.1.0'
 gem 'newrelic_rpm' 
 gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'passenger'
+gem 'quiet_assets'
+gem 'devise', '~> 3.2.4'
 
 # Versioning
 gem 'paper_trail', '~> 3.0.3'
