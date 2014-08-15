@@ -1,51 +1,87 @@
+.PlayerInfoHeader.ModulePrimary
+  .row
+    .col-sm-3.Section
+      %h4.Title
+        %i.fa.fa-clock-o
+        Updated #{time_ago_in_words(@player.updated_at)} ago
+    .col-sm-3.Section
+      %ul.list-inline
+        %li
+          %h1.no-margin
+            = number_with_delimiter(@player.points)
+        %li
+          %h5 TOTAL
+          %h5 POINTS 
+    .col-sm-3
+      ss
+    .col-sm-3
+      .FollowUser.pull-right
+        - if user_signed_in?
+          = link_to '#', class: 'GrepoliaButton' do
+            Follow
+        - else
+          = link_to new_user_session_path, class: 'GrepoliaButton' do
+            Sign in to Follow
+
 .row
   .col-md-3
-    / Bash Points
-    .list-group
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Fighter
+    / Player Bash Points
+    .PlayerStatisticModule.ModulePrimary
+      .Header
+        Bash Points
         .pull-right
-          = @player.all_points 
-          Points
-        .clearfix
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Attacker
-        .pull-right
-          = @player.att_points
-          Points
-        .clearfix
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Defender
-        .pull-right
-          = @player.def_points
-          Points
-        .clearfix
-    / Conquers
-    .list-group
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Flextrom
-          %small + 2900
-        .pull-right
-          %span.label.label-danger EO
-        .clearfix
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Anubis
-          %small + 3500
-        .pull-right
-          %span.label.label-info IE
-        .clearfix
-      %a.list-group-item{href: "#"}
-        .pull-left
-          Akaris
-          %small + 4264
-        .pull-right
-          %span.label.label-info IE
-        .clearfix
+          %i.fa.fa-dot-circle-o
+      .Body
+        %table.HorizontalStatistics
+          %tbody
+            %tr
+              %td
+                %h5 Fighter
+              %td.pull-right
+                %h5
+                  = number_with_delimiter(@player.all_points) 
+                  Pts
+            %tr
+              %td
+                %h5 Attacker 
+              %td.pull-right
+                %h5
+                  = number_with_delimiter(@player.att_points) 
+                  Pts
+            %tr
+              %td
+                %h5 Defender
+              %td.pull-right
+                %h5
+                  = number_with_delimiter(@player.def_points)
+                  Pts 
+
+    / Recent Conquers
+    - if @player.conquers.any?
+      .PlayerStatisticModule.ModulePrimary
+        .Header
+          Recent Conquers
+          .pull-right
+            %i.fa.fa-flag
+        .Body
+          %table.HorizontalStatistics
+            %tbody
+              - @player.conquers.order("time desc").first(3).each do |c|
+                %tr
+                  %td
+                    = link_to c.town do
+                      %h5 
+                        = c.town.name.capitalize
+                      %td.pull-right
+                        %h5
+                          - if c.intern?
+                            %span.label.GrepoLabelPrimary
+                              IE 
+                          - else
+                            %span.label.GrepoLabelOrange
+                              EO 
+
+          
   .col-md-9
     .cerb_player_head
       .pl_q_info
