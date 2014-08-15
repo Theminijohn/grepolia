@@ -16,12 +16,7 @@
       ss
     .col-sm-3
       .FollowUser.pull-right
-        - if user_signed_in?
-          = link_to '#', class: 'GrepoliaButton' do
-            Follow
-        - else
-          = link_to new_user_session_path, class: 'GrepoliaButton' do
-            Sign in to Follow
+        = follow_button(@player)
 
 .row
   .col-md-3

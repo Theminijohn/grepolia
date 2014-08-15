@@ -44,7 +44,22 @@ task :import_conquers => [:environment] do
       end
 
       Conquer.where(:town_id => a[:town_id]).first_or_initialize.update_attributes(a)
+      @pl = Player.find_by_grepo_id(a[:new_player_id])
+      if @pl.present? && @pl.followers.count > 0
+        @pl.followers.each do |follower|
+          @pl.create_activity action: 'conquered_town', recipient: follower
+        end
+      end
       progress.increment
+
+      # Need to implement checking for timestampes to don't create duplicate activities
+
+      # if @owner = Player.find(params[:new_player_id]).present?
+      #   if @owner.followers.count > 0
+      #     @conquer.create_activity :create, recipient: @owner.followers
+      #   end
+      # end
+
     end
 
   end
