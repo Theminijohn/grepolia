@@ -61,7 +61,8 @@ ActiveRecord::Schema.define(version: 20140815181736) do
   add_index "alliances", ["rank"], name: "index_alliances_on_rank", using: :btree
   add_index "alliances", ["town_count"], name: "index_alliances_on_town_count", using: :btree
 
-  create_table "conquers", primary_key: "town_id", force: true do |t|
+  create_table "conquers", force: true do |t|
+    t.integer  "town_id"
     t.integer  "time"
     t.integer  "new_player_id"
     t.integer  "old_player_id"

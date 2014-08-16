@@ -1,6 +1,18 @@
 require 'smarter_csv'
 require 'open-uri'
 require 'ruby-progressbar'
+
+# Public Activity
+def create_activity(a, conquer)
+  @pl = Player.find_by_grepo_id(a[:new_player_id])
+  if @pl.present? && @pl.followers.count > 0
+    @pl.followers.each do |follower|
+      # @pl.create_activity :conquered_town, owner: @pl , recipient: follower
+      conquer.create_activity :conquered_town, owner: @pl, recipient: follower
+    end
+  end
+end
+
 desc "Import Conquers"
 
 task :import_conquers => [:environment] do
@@ -42,23 +54,13 @@ task :import_conquers => [:environment] do
         a[:old_player_name] = "Abandoned"
         a[:old_alliance_name] = "-"
       end
-
-      Conquer.where(:town_id => a[:town_id]).first_or_initialize.update_attributes(a)
-      @pl = Player.find_by_grepo_id(a[:new_player_id])
-      if @pl.present? && @pl.followers.count > 0
-        @pl.followers.each do |follower|
-          @pl.create_activity action: 'conquered_town', recipient: follower
-        end
+      
+      c = Conquer.where(a)
+      unless c.exists?
+        conquer = Conquer.create(a)
+        create_activity(a, conquer)
       end
       progress.increment
-
-      # Need to implement checking for timestampes to don't create duplicate activities
-
-      # if @owner = Player.find(params[:new_player_id]).present?
-      #   if @owner.followers.count > 0
-      #     @conquer.create_activity :create, recipient: @owner.followers
-      #   end
-      # end
 
     end
 

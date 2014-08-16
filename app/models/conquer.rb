@@ -1,7 +1,7 @@
 class Conquer < ActiveRecord::Base
 
 	# Primary Key
-  self.primary_key = 'town_id'
+  # self.primary_key = 'town_id'
 
   # Associations
   belongs_to :town, foreign_key: :town_id

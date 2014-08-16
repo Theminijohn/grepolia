@@ -33,5 +33,6 @@ Rails.application.routes.draw do
 
   # Public Activity
   resources :activities
+  get 'clear_activities' => 'activities#delete_all', as: :clear_activities
 
 end

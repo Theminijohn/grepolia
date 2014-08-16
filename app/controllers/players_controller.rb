@@ -16,6 +16,8 @@ class PlayersController < ApplicationController
   def unfollow
     @player = Player.find(params[:id])
     current_user.stop_following(@player)
+    # Delete Activities that have been created
+    PublicActivity::Activity.where(owner: @player, recipient: current_user).delete_all
     redirect_to :back
   end
 

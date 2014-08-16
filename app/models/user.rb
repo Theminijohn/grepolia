@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   # Follower
   acts_as_follower
+
 end
