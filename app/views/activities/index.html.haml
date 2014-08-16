@@ -1,0 +1,38 @@
+.row
+  .col-md-3
+    .ActivitiesModule.ModulePrimary
+      .Header
+        Users you follow
+        .pull-right
+          %i.fa.fa-check-square-o
+      .Body
+        .center
+          .FollowingCount
+            =current_user.follow_count
+
+  .col-md-9
+
+    .ActivitiesNavigation.ModulePrimary
+      .Header
+        Activities
+        .pull-right.DeleteActivities
+          -if @activities.any?
+            =link_to clear_activities_path do
+              %i.fa.fa-check
+                Clear all
+
+    .panel
+      .panel-body
+        %table.table.ActivitiesTable
+          %tbody
+            -@activities.all.each do |a|
+              %tr
+                %td 
+                  %i.fa.fa-crosshairs{style: 'color: rgba(34,146,217,.7)'}
+                  =link_to a.owner.name, a.owner
+                  conquered the town 
+                  =a.trackable.town.name
+                  .pull-right.ConquerTime
+                    %i.fa.fa-clock-o
+                    =time_ago_in_words(Time.at(a.trackable.time))
+                    ago

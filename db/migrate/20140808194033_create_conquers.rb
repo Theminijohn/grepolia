@@ -1,7 +1,7 @@
 class CreateConquers < ActiveRecord::Migration
   def change
-    create_table :conquers, id: false do |t|
-      t.primary_key :town_id
+    create_table :conquers do |t|
+      t.integer :town_id
       t.integer :time
       t.integer :new_player_id
       t.integer :old_player_id

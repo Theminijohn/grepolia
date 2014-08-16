@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
-$body-bg:                         #f5f5f5;
+$body-bg:                         #f2f4f8;
 $font-family-sans-serif:          'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:                   45px;
 $navbar-default-bg:               white;
@@ -11,7 +11,6 @@ $jumbotron-bg:                    white;
 $grid-gutter-width: 20px;
 $container-large-desktop:  ((940px + $grid-gutter-width));
 
-@import 'font-awesome';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
