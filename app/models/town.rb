@@ -1,7 +1,10 @@
 class Town < ActiveRecord::Base
-
+  
+  # Primary Key
 	self.primary_key = 'grepo_id'
-	belongs_to :player, foreign_key: :player_id
+
+  # Associations
+  belongs_to :player, foreign_key: :player_id
   has_many :conquers, foreign_key: :town_id
 
 end

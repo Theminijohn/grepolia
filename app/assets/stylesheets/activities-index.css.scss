@@ -1,0 +1,57 @@
+.ActivitiesModule {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #fff;
+  .Header {
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 700;
+    i {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  .Body {
+    padding: 15px;
+    .FollowingCount {
+      font-size: 66px;
+      color: rgba(255, 255, 255,.9);
+      margin-top: -15px;
+    }
+  }
+}
+
+.ActivitiesNavigation {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  border-radius: 4px;
+  .Header {
+    color: rgba(255,255,255,.9);
+  }
+  .DeleteActivities {
+    a {
+      text-decoration: none;
+      color: rgba(255,255,255,.6);
+      &:hover { color: rgba(255,255,255,.9) }
+    }
+  }
+}
+
+.ActivitiesTable {
+  tbody {
+    tr {
+      td {
+        border: 0!important;
+        .ConquerTime {
+          color: #808990;
+        }
+      }
+    }
+    tr:nth-child(odd) {
+      td {
+        background-color: #f2f4f8;
+        border-radius: 4px;
+      }
+    }
+  }
+}

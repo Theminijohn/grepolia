@@ -61,22 +61,98 @@
 
 }
 
+// Bash Points Module
+.PlayerStatisticModule {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #fff;
+  .Header {
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 700;
+    i {
+      color: rgba(255,255,255,.5);
+    }
+  }
+  .Body {
+    padding: 15px;
+    a {
+      color: #fff; 
+      &:hover {
+      }
+    }
+  }
+  table.HorizontalStatistics {
+    width: 100%;
+    tr {
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  
+}
+
+// Player Profile Header
+.PlayerInfoHeader {
+  padding: 15px;
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  .Section {
+    color: rgba(255,255,255,.9);
+    .Title {
+      font-size: 14px;
+    }
+    .list-inline {
+      margin: 0;
+      h1 {
+        font-size: 30px;
+        margin: 0;
+        font-weight: bold;
+      }
+      h5 {
+        font-size: 11px;
+        margin: 0;
+      }
+    }
+  }
+  .FollowUser {
+    padding-top: 5px;
+  }
+}
 
 
 
+.ModulePrimary {
+  background-image: -moz-linear-gradient(-65deg, #2292d9 40%, #1d48ba);
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(40%, #2292d9), color-stop(100%, #1d48ba));
+  background-image: -webkit-linear-gradient(-65deg, #2292d9 40%, #1d48ba);
+  background-image: -o-linear-gradient(-65deg, #2292d9 40%, #1d48ba);
+  background-image: -ms-linear-gradient(-65deg, #2292d9 40%, #1d48ba);
+  background-image: linear-gradient(155deg, #2292d9 40%,#1d48ba);
+}
+
+.ModuleOrange {
+  background-image: -moz-linear-gradient(-65deg, #fbba52 40%, #fb792f);
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(40%, #fbba52), color-stop(100%, #fb792f));
+  background-image: -webkit-linear-gradient(-65deg, #fbba52 40%, #fb792f);
+  background-image: -o-linear-gradient(-65deg, #fbba52 40%, #fb792f);
+  background-image: -ms-linear-gradient(-65deg, #fbba52 40%, #fb792f);
+  background-image: linear-gradient(155deg, #fbba52 40%,#fb792f);
+}
 
 
 
+// Labels
+.GrepoLabelPrimary {
+  background-color: rgba(0,0,0,.3);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.GrepoLabelOrange {
+  background-color: rgba(218,81,4,.3);
+}

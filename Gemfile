@@ -16,10 +16,11 @@ gem 'bootstrap-sass', '~> 3.2.0.1'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails', '~> 1.1.1.0'
 gem 'newrelic_rpm' 
-gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'passenger'
 gem 'quiet_assets'
 gem 'devise', '~> 3.2.4'
+gem 'public_activity'
+gem 'acts_as_follower', '~> 0.2.1'
 
 # Versioning
 gem 'paper_trail', '~> 3.0.3'
@@ -39,6 +40,7 @@ gem 'ruby-progressbar', '~> 1.5.1'
 
 group :development do
   gem 'spring'
+  gem 'pry-rails'
 end
 
 group :test do
