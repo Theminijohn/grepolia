@@ -12,7 +12,6 @@ Grepolia.Models.Player = Backbone.Model.extend({
 		def_points: '',
 		att_rank: '',
 		att_points: ''
-	},
+	}
 
-	urlRoot: '/api/v1/players'
 });
