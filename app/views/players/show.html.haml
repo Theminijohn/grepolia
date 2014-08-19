@@ -104,62 +104,106 @@
               = pluralize(@player.town_count, 'Town')
             %span.diff_versions
               %i.fa.fa-chevron-circle-up{style: "color:rgba(46,204,113,0.6)"}
-    .player_content
-      .board
-        .board-inner
-          %ul#myTab.nav.nav-tabs
-            %li.active
-              %a{"data-toggle" => "tab", href: "#overview", title: "welcome"}
-                %i.fa.fa-graduation-cap
-                Overview
-            %li
-              %a{"data-toggle" => "tab", href: "#towns", title: "profile"}
-                %i.fa.fa-institution
-                Towns 
-                %span.label.label-primary= @player.town_count
-                
-            %li
-              %a{"data-toggle" => "tab", href: "#conquers"}
-                %i.fa.fa-flag
-                Conquers
-                %span.label.label-primary= @player.conquers.all.count  
-        .tab-content
-          #overview.tab-pane.active{style: 'padding:20px'}
-            Overview
-          #towns.tab-pane{style: 'padding:20px'}
-            .panel.panel-default.pl_tab
-              %table.table.table-bordered.table-hover.table-condensed
-                %thead
-                  %tr.table_nav
-                    %th Name
-                    %th Points 
-                    %th Coordinates 
-                    %th Ocean 
-                %tbody
-                  - @player.towns.each do |t|
-                    %tr
-                      %td= link_to t.name, t
-                      %td= number_with_delimiter(t.points)
-                      %td= t.coordinates 
-                      %td= t.ocean
 
-          #conquers.tab-pane{style: 'padding:20px'}
-            .panel.panel-default.pl_tab
-              %table.table.table-bordered.table-hover.table-condensed
-                %thead
-                  %tr.table_nav
-                    %th Date 
-                    %th Town 
-                    %th Old Player 
-                    %th Old Alliance 
-                    %th Intern
-                    %th Points
-                %tbody
-                  - @player.conquers.order('time desc').each do |c|
-                    %tr
-                      %td= c.conquer_time 
-                      %td= link_to c.town.name, c.town 
-                      %td= link_to c.old_player.name, c.old_player rescue c.old_player_name
-                      %td= link_to c.old_alliance.name, c.old_alliance rescue c.old_alliance_name 
-                      %td.center= intern_conquer(c)
-                      %td= number_with_delimiter(c.town_points)
+    %br
+
+    .panel.with-nav-tabs.player_show_panel
+      .panel-heading.ModulePrimary
+        %ul.nav.nav-tabs
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#tab1towns"} 
+              %i.fa.fa-university
+              Towns
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2conquers"} 
+              %i.fa.fa-flag
+              Conquers
+          
+      .panel-body
+        .tab-content
+          #tab1towns.tab-pane.fade.in.active
+            %table.table.PlayerShowTable
+              %thead
+                %tr
+                  %th Name
+                  %th.center{width: '150px'} 
+                    Points
+                  %th.center{width: '100px'} 
+                    Coordinates
+                  %th.center{width: '50px'} 
+                    Ocean
+              %tbody
+                - @player.towns.each do |t|
+                  %tr
+                    %td
+                      = link_to t.name, t
+                    %td.center
+                      = number_with_delimiter(t.points)
+                    %td.center
+                      = t.coordinates
+                    %td.center
+                      = t.ocean
+
+          #tab2conquers.tab-pane.fade
+            %table.table.PlayerShowTable
+              %thead
+                %tr
+                  %th
+                    Date
+                  %th
+                    Town
+                  %th
+                    Old Player
+                  %th
+                    Old Aliance
+                  %th
+                    Intern
+                  %th
+                    Points
+              %tbody
+                - @player.conquers.order('time desc').each do |c|
+                  %tr
+                    %td= c.conquer_time 
+                    %td= link_to c.town.name, c.town 
+                    %td= link_to c.old_player.name, c.old_player rescue c.old_player_name
+                    %td= link_to c.old_alliance.name, c.old_alliance rescue c.old_alliance_name 
+                    %td.center= intern_conquer(c)
+                    %td= number_with_delimiter(c.town_points)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

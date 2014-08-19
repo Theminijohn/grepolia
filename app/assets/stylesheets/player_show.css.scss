@@ -156,3 +156,78 @@
 .GrepoLabelOrange {
   background-color: rgba(218,81,4,.3);
 }
+
+
+.PlayerShowTable {
+  tbody {
+    tr {
+      td {
+        border: 0!important;
+        .ConquerTime {
+          color: #808990;
+        }
+      }
+    }
+    tr:nth-child(odd) {
+      td {
+        background-color: #f2f4f8;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Tabs
+.panel.player_show_panel .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.player_show_panel .nav-tabs{
+  border-bottom: none;
+}
+.panel.player_show_panel .nav-justified{
+  margin-bottom: -1px;
+}
+
+/*** PANEL PRIMARY ***/
+.player_show_panel .nav-tabs > li > a,
+.player_show_panel .nav-tabs > li > a:hover,
+.player_show_panel .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.player_show_panel .nav-tabs > .open > a,
+.player_show_panel .nav-tabs > .open > a:hover,
+.player_show_panel .nav-tabs > .open > a:focus,
+.player_show_panel .nav-tabs > li > a:hover,
+.player_show_panel .nav-tabs > li > a:focus {
+  color: #fff;
+  background-color: #3071a9;
+  border-color: transparent;
+}
+.player_show_panel .nav-tabs > li.active > a,
+.player_show_panel .nav-tabs > li.active > a:hover,
+.player_show_panel .nav-tabs > li.active > a:focus {
+  color: #428bca;
+  background-color: #fff;
+  border-color: #428bca;
+  border-bottom-color: transparent;
+}
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #428bca;
+    border-color: #3071a9;
+}
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #fff;   
+}
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #3071a9;
+}
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.player_show_panel .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    background-color: #4a9fe9;
+}

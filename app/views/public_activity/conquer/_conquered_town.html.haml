@@ -1,0 +1,9 @@
+%i.fa.fa-crosshairs{style: 'color: rgba(34,146,217,.7)'}
+&nbsp;
+=link_to a.owner.name, a.owner
+conquered the town 
+=link_to a.trackable.town.name, a.trackable.town
+.pull-right.ConquerTime
+  %i.fa.fa-clock-o
+  =time_ago_in_words(Time.at(activity.trackable.time))
+  ago

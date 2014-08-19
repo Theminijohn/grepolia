@@ -1,0 +1,9 @@
+%i.fa.fa-flag{style: 'color: rgba(34,146,217,.7)'}
+&nbsp;
+=link_to a.owner.name.capitalize, a.owner
+changed Alliances and moved to
+=link_to a.trackable.alliance.name, a.trackable.alliance
+.pull-right.ConquerTime
+  %i.fa.fa-clock-o
+  =time_ago_in_words(Time.at(activity.owner.updated_at))
+  ago

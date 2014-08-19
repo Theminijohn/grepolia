@@ -29,14 +29,7 @@
               -@activities.all.each do |a|
                 %tr
                   %td 
-                    %i.fa.fa-crosshairs{style: 'color: rgba(34,146,217,.7)'}
-                    =link_to a.owner.name, a.owner
-                    conquered the town 
-                    =a.trackable.town.name
-                    .pull-right.ConquerTime
-                      %i.fa.fa-clock-o
-                      =time_ago_in_words(Time.at(a.trackable.time))
-                      ago
+                    =render_activity a
         -else
           .center
             %h5 No new Activities, Good job! 

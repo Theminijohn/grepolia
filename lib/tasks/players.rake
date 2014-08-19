@@ -25,7 +25,18 @@ task :import_players => [:environment] do
     array.each do |a|
       a[:name] = a[:name].to_s
       a[:name] = CGI::unescape(a[:name]).force_encoding('UTF-8')
-      Player.where(:grepo_id => a[:grepo_id]).first_or_initialize.update_attributes(a)
+    
+      player = Player.where(grepo_id: a[:grepo_id]).first_or_initialize
+      player.attributes = a
+      
+      # Track Alliance Changes
+      if player.alliance_id_changed? && player.followers.count > 0
+        player.followers.each do |follower|
+          player.create_activity :changed_alliance, owner: player, recipient: follower
+        end
+      end
+
+      player.save if player.changed?
       progress.increment
     end
 
