@@ -1,21 +1,43 @@
-%nav.navbar.navbar-default.navbar-fixed-top.grepolia-nav{role: "navigation"}
+%nav.navbar.navbar-default.navbar-fixed-top.grepolia-nav{:role => "navigation"}
   .container
     / Brand and toggle get grouped for better mobile display
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+      %button.navbar-toggle{"data-target" => "#navbar-brand-centered", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Grepolia', root_path, class: 'navbar-brand'
+      .navbar-brand.navbar-brand-centered 
+        =link_to 'Grepolia', root_path
+
     / Collect the nav links, forms, and other content for toggling
-    .collapse.navbar-collapse.navbar-ex1-collapse
+    #navbar-brand-centered.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          =link_to players_path do
+            %i.fa.fa-users
+            Players
+        %li
+          =link_to alliances_path do
+            %i.fa.fa-shield
+            Alliances
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'Players', players_path 
         - if user_signed_in?
-          %li= link_to 'Activities', activities_path
-          %li= link_to 'Account Settings', edit_user_registration_path
-          %li= link_to 'Log out', destroy_user_session_path, method: :delete 
+          %li
+            =link_to activities_path do
+              %i.fa.fa-dot-circle-o
+              Activities 
+          %li
+            =link_to edit_user_registration_path do
+              %i.fa.fa-sliders
+              Settings
+          %li
+            =link_to destroy_user_session_path, method: :delete do
+              %i.fa.fa-power-off 
+              Log out
         - else
-          %li= link_to 'Sign in', new_user_session_path
-    / /.navbar-collapse
+          %li
+            =link_to new_user_session_path do
+              %i.fa.fa-power-off
+              Sign in
+

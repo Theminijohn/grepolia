@@ -1,4 +1,21 @@
 .grepolia-nav {
-	box-shadow: 0 3px 3px rgba(0,0,0,0.015);
-	border-color: #e7e7e7;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.015);
+  border-color: #e7e7e7;
+}
+
+@media screen and (min-width:768px){
+  .navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 160px;
+    text-align: center;
+    a {
+      text-decoration: none;
+    } 
+  }
+  .navbar>.container .navbar-brand-centered, 
+  .navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+  }
 }
