@@ -9,8 +9,9 @@ Grepolia.Routers.Players = Backbone.Router.extend({
 		},
 
 	show: function(id) {
-		window.player = new Grepolia.Models.Player({id: id});
+    //window.player = new Grepolia.Models.Player({id: id});
+    var player = new Player({id: id});
 		player.fetch();
 		console.log('You are in Show');
 	}
-})
+});

@@ -91,6 +91,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marionette-rails (2.1.0)
+      railties (>= 3.1)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.0)
@@ -215,6 +217,7 @@ DEPENDENCIES
   haml-rails (~> 0.5.3)
   jbuilder (~> 2.1.3)
   jquery-rails
+  marionette-rails
   newrelic_rpm
   oj (~> 2.9.9)
   oj_mimic_json
