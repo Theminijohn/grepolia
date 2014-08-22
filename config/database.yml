@@ -4,7 +4,7 @@ default: &default
   host: localhost
   username: postgres
   password: grep0lia
-  pool: 5
+  pool: 10
 
 
 development:

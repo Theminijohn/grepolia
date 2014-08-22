@@ -1,14 +1,21 @@
-window.Grepolia = {
+window.Grepolia = new Backbone.Marionette.Application();
+
+_.extend(Grepolia, {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-		new Grepolia.Routers.Players();
-		Backbone.history.start({pushState: true});
-  }
-};
+})
+
+Grepolia.addInitializer(function(){
+  new Grepolia.Routers.Home();
+  new Grepolia.Routers.Players();
+})
+
+Grepolia.on('start', function(options) {
+  Backbone.history.start({pushState: true});
+});
 
 $(document).ready(function(){
-  Grepolia.initialize();
+  Grepolia.start();
 });

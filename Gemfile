@@ -15,6 +15,7 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'bootstrap-sass', '~> 3.2.0.1'
 gem 'autoprefixer-rails'
 gem 'backbone-on-rails', '~> 1.1.1.0'
+gem 'marionette-rails'
 gem 'newrelic_rpm' 
 gem 'passenger'
 gem 'quiet_assets'
@@ -37,6 +38,7 @@ gem 'oj_mimic_json'
 # Importing
 gem 'smarter_csv', '~> 1.0.17'
 gem 'ruby-progressbar', '~> 1.5.1'
+gem 'sidekiq', '~> 3.2.2'
 
 group :development do
   gem 'spring'

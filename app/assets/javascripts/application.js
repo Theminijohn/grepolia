@@ -5,6 +5,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require backbone.marionette
 //= require grepolia
 //= require_tree ./models
 //= require_tree ./collections

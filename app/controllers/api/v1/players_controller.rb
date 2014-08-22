@@ -4,7 +4,7 @@ module Api
       respond_to :json
 
       def index
-				@players = Player.all
+				@players = Player.limit(30)
       end
 
       def show

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'activities/index'
-
   # API
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   devise_for :users, path: '',
     path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
 
+  # get '*path', to: 'pages#home'
+
   # Players 
 	resources :players, only: [:index, :show] do
     member do
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 	resources :towns, only: [:index, :show]
 	resources :alliances, only: [:index, :show]
   resources :conquers, only: [:index, :show]
+
 
   # Public Activity
   resources :activities

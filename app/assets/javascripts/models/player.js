@@ -1,4 +1,4 @@
-Grepolia.Models.Player = Backbone.Model.extend({
+var Player = Backbone.Model.extend({
 	defaults: {
 		grepo_id: '',
 		name: '',
@@ -17,3 +17,4 @@ Grepolia.Models.Player = Backbone.Model.extend({
   urlRoot: '/api/v1/players'
 
 });
+
