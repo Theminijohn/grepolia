@@ -33,14 +33,15 @@ namespace :populate do
 		ImportConquer.perform_async(:de67)
 	end
 
+	# Invoke All Tasks (Heroku Scheduler Endpoint)
+	task :all => [:environment] do
+
+		TASKS = [:players, :player_kills, :alliances,
+						 :ally_kills, :towns, :conquers]
+		TASKS.each do |t|
+			Rake::Task["populate:#{t.to_s}"].invoke
+		end
+
+	end
+
 end
-
-
-# task :populate do
-# 	TASKS = [:import_players, :player_kills_all, :player_kills_def,
-# 					 :player_kills_att, :import_towns, :import_alliances, :aly_kills_all,
-#            :aly_kills_def, :aly_kills_att, :import_conquers]
-# 	TASKS.each do |t|
-# 		Rake::Task[t.to_s].invoke
-# 	end
-# end
