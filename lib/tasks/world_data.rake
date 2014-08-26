@@ -1,47 +1,42 @@
 ####
 # Imports all the World Data from Grepolis Server.
-# Passed to Sidekiq Workers for Async work.
 ###
 
 namespace :populate do
-
 	task :players => [:environment] do
-	  ImportPlayer.perform_async(:de67)
+	  Rake::Task['import_players'].invoke
 	end
 
 	task :player_kills => [:environment] do
-		ImportPkall.perform_async(:de67)
-		ImportPkdef.perform_async(:de67)
-		ImportPkatt.perform_async(:de67)
+		Rake::Task['player_kills_all'].invoke
+		Rake::Task['player_kills_def'].invoke
+		Rake::Task['player_kills_att'].invoke
 	end
 
 	task :alliances => [:environment] do
-		ImportAlliance.perform_async(:de67)
+		Rake::Task['import_alliances'].invoke
 	end
 
 	task :ally_kills => [:environment] do
-		ImportAkall.perform_async(:de67)
-		ImportAkdef.perform_async(:de67)
-		ImportAkatt.perform_async(:de67)
+		Rake::Task['aly_kills_all'].invoke
+		Rake::Task['aly_kills_def'].invoke
+		Rake::Task['aly_kills_att'].invoke
 	end
 
 	task :towns => [:environment] do
-		ImportTown.perform_async(:de67)
+		Rake::Task['import_towns'].invoke
 	end
 
 	task :conquers => [:environment] do
-		ImportConquer.perform_async(:de67)
+		Rake::Task['import_conquers'].invoke
 	end
 
 	# Invoke All Tasks (Heroku Scheduler Endpoint)
 	task :all => [:environment] do
-
 		TASKS = [:players, :player_kills, :alliances,
 						 :ally_kills, :towns, :conquers]
 		TASKS.each do |t|
 			Rake::Task["populate:#{t.to_s}"].invoke
 		end
-
 	end
-
 end

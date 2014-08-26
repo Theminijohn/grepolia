@@ -38,7 +38,6 @@ gem 'oj_mimic_json'
 # Importing
 gem 'smarter_csv', '~> 1.0.17'
 gem 'ruby-progressbar', '~> 1.5.1'
-gem 'sidekiq', '~> 3.2.2'
 
 group :development do
   gem 'spring'
